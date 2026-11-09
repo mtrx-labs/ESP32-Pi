@@ -75,10 +75,8 @@ Clone the repository and keep the firmware and dashboard header in the same Ardu
 
 ```text
 ESP32-Pi/
-├── assets/
-│   └── logo.svg   # Original project logo
 ├── code.ino
-├── dashboard.h   # Dashboard with the logo embedded inline
+├── dashboard.h
 └── README.md
 ```
 
@@ -273,18 +271,13 @@ ESP32-Pi is intended for experimentation and trusted local networks. Review thes
 - The access point is configured for up to four clients.
 - The dashboard is served over plain HTTP.
 
-## Branding
-
-The original project mark is available as [`assets/logo.svg`](assets/logo.svg). The dashboard embeds the same SVG directly in `dashboard.h` for its header and browser favicon, so the device does not need to load a separate image file from FFat at runtime.
-
 ## Repository layout
 
 ```text
 .
 ├── assets/
-│   └── logo.svg   # Original project logo
 ├── code.ino       # ESP32-S3 firmware, DNS engine, Wi-Fi, APIs and setup
-├── dashboard.h    # Embedded HTML/CSS/JavaScript dashboard and inline logo
+├── dashboard.h    # Embedded HTML/CSS/JavaScript dashboard
 └── README.md      # Project documentation
 ```
 
