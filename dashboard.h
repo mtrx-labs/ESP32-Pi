@@ -1,3 +1,5 @@
+// Dashboard page for ESP32-Pi. Kept in a header so the Arduino build
+// does not scan the JavaScript for C++ function prototypes.
 #pragma once
 #include <Arduino.h>
 
@@ -8,7 +10,7 @@ static const char DASHBOARD_HTML[] PROGMEM = R"HTML(<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>ESP32-Pi</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b8f86' d='M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDEiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCA0MSA0MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZF8zMV8xNCkiPgo8bGluZSB4MT0iNy43Nzc3OCIgeTE9IjE2IiB4Mj0iMjYuNjY2NyIgeTI9IjE2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iIzBFOUUxOCIvPgo8bGluZSB4MT0iOC4zMzI0OCIgeTE9IjE2LjE2OCIgeDI9IjMwLjk5OTEiIHkyPSIzMS4yNzkxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iIzBFOUUxOCIvPgo8bGluZSB4MT0iMzMuMzMxMSIgeTE9IjMuODQ0MzEiIHgyPSIzMS40NDIyIiB5Mj0iMzIuMTc3NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiMwRTlFMTgiLz4KPGxpbmUgeDE9IjcuMzAzNjgiIHkxPSIxNi4xMTk1IiB4Mj0iMzEuODU5MiIgeTI9IjIuODk3MzEiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSIjMEU5RTE4Ii8+CjxsaW5lIHgxPSIyNy42MzY4IiB5MT0iMTYuNzU3NSIgeDI9IjMxLjQxNDYiIHkyPSIzMS44Njg2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iIzBFOUUxOCIvPgo8bGluZSB4MT0iMjcuNjE5MiIgeTE9IjE2LjY0ODkiIHgyPSIzMy4yODU5IiB5Mj0iMS41Mzc3NyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiMwRTlFMTgiLz4KPGNpcmNsZSBjeD0iMzMuMjc3OCIgY3k9IjIuODMzMzMiIHI9IjIuODMzMzMiIGZpbGw9IiMwNTQzMDkiLz4KPGNpcmNsZSBjeD0iMzEuMzg4OSIgY3k9IjMxLjE2NjciIHI9IjIuODMzMzMiIGZpbGw9IiMwNTQzMDkiLz4KPGNpcmNsZSBjeD0iNi44MzMzMyIgY3k9IjE2LjA1NTYiIHI9IjIuODMzMzMiIGZpbGw9IiMwNTQzMDkiLz4KPGNpcmNsZSBjeD0iMjcuNjExMSIgY3k9IjE2LjA1NTYiIHI9IjIuODMzMzMiIGZpbGw9IiMwNTQzMDkiLz4KPC9nPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9kXzMxXzE0IiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAuMTExMSIgaGVpZ2h0PSI0MiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgo8ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPgo8ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIgcmVzdWx0PSJoYXJkQWxwaGEiLz4KPGZlT2Zmc2V0IGR5PSI0Ii8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjIiLz4KPGZlQ29tcG9zaXRlIGluMj0iaGFyZEFscGhhIiBvcGVyYXRvcj0ib3V0Ii8+CjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMjUgMCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9ImVmZmVjdDFfZHJvcFNoYWRvd18zMV8xNCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImVmZmVjdDFfZHJvcFNoYWRvd18zMV8xNCIgcmVzdWx0PSJzaGFwZSIvPgo8L2ZpbHRlcj4KPC9kZWZzPgo8L3N2Zz4=">
 <style>
 :root{color-scheme:light;--bg:#eaf0f4;--pn:#fff;--p2:#f1f5f8;--ln:#d3dde5;--tx:#10202c;--mu:#5d7080;--ok:#0b8f86;--on:#fff;--bk:#d9442b;--bl:#3b7dd8;--wa:#c58a12}
 @media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#0c1822;--pn:#132431;--p2:#193040;--ln:#22394a;--tx:#e6eef4;--mu:#8aa0b0;--ok:#34c2b5;--on:#06201d;--bk:#ff7a5f;--bl:#6aa5f0;--wa:#e3b34f}}
@@ -17,7 +19,7 @@ body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-appl
 .wrap{max-width:1020px;margin:0 auto;padding:20px 16px 72px}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
 .brand{display:flex;align-items:center;gap:12px}
-.brand svg{width:38px;height:38px;flex:none}
+.brand svg{width:41px;height:42px;flex:none}
 h1{margin:0;font-size:21px;font-weight:750;letter-spacing:-.02em}
 h2{margin:0 0 12px;font-size:16px;font-weight:700}
 h3{margin:18px 0 6px;font-size:14px}
@@ -101,7 +103,32 @@ footer{margin-top:28px;text-align:center}
 
 <header>
   <div class="brand">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="var(--ok)" stroke-width="1.8" stroke-linejoin="round" d="M12 2.5 4.5 5.4v5.6c0 4.7 3.2 8.8 7.5 10.3 4.3-1.5 7.5-5.6 7.5-10.3V5.4z"/><path fill="none" stroke="var(--ok)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m8.6 12 2.4 2.4 4.4-4.8"/></svg>
+    <svg width="41" height="42" role="img" aria-label="ESP32-Pi logo" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_31_14)">
+<line x1="7.77778" y1="16" x2="26.6667" y2="16" stroke-width="2" stroke="#0E9E18"/>
+<line x1="8.33248" y1="16.168" x2="30.9991" y2="31.2791" stroke-width="2" stroke="#0E9E18"/>
+<line x1="33.3311" y1="3.84431" x2="31.4422" y2="32.1776" stroke-width="2" stroke="#0E9E18"/>
+<line x1="7.30368" y1="16.1195" x2="31.8592" y2="2.89731" stroke-width="2" stroke="#0E9E18"/>
+<line x1="27.6368" y1="16.7575" x2="31.4146" y2="31.8686" stroke-width="2" stroke="#0E9E18"/>
+<line x1="27.6192" y1="16.6489" x2="33.2859" y2="1.53777" stroke-width="2" stroke="#0E9E18"/>
+<circle cx="33.2778" cy="2.83333" r="2.83333" fill="#054309"/>
+<circle cx="31.3889" cy="31.1667" r="2.83333" fill="#054309"/>
+<circle cx="6.83333" cy="16.0556" r="2.83333" fill="#054309"/>
+<circle cx="27.6111" cy="16.0556" r="2.83333" fill="#054309"/>
+</g>
+<defs>
+<filter id="filter0_d_31_14" x="0" y="0" width="40.1111" height="42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_31_14"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_31_14" result="shape"/>
+</filter>
+</defs>
+</svg>
     <div><h1>ESP32-Pi</h1><div class="mu">DNS filter for <span id="apName">your hotspot</span></div></div>
   </div>
   <div class="pill" id="pill"><i></i><span id="pillT">Connecting</span></div>
