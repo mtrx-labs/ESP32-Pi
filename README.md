@@ -1,6 +1,6 @@
 # ESP32-Pi
 
-<p align="center"><img src="assets/logo.svg" alt="ESP32-Pi logo" width="82"></p>
+<p align="center"><img src=".assets/logo.svg" alt="ESP32-Pi logo" width="82"></p>
 
 **A lightweight DNS-filtering gateway built for the ESP32-S3.** ESP32-Pi creates its own Wi-Fi hotspot, connects to an existing Wi-Fi network, shares that connection with hotspot clients, and filters DNS requests using local rules and the HaGeZi Pro domain blocklist. A built-in web dashboard lets you monitor traffic and manage the device without needing a separate server.
 
